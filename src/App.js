@@ -49,11 +49,11 @@ function App() {
     } = useStyles();
 
     useEffect(() => {
-        const name = window.prompt();
+        const name = window.prompt("Wpisz swoje imię");
         setMainUserName(name);
 
         db.collection("messages")
-            .orderBy("timestamp", "aPatryksc")
+            .orderBy("timestamp", "asc")
             .onSnapshot(snapshot =>
                 setMessages(snapshot.docs.map(doc => doc.data()))
             );
